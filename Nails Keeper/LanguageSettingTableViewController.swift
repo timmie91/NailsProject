@@ -20,12 +20,22 @@ class LanguageSettingTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.title = "Laguage Setting"
+        navigationBar.title = "Laguage - Ngôn Ngữ"
         english.textLabel?.text = "English"
         vietnamese.textLabel?.text = "Tiếng Việt"
         
         //todo set checkmake
-        english.accessoryType = UITableViewCellAccessoryType.Checkmark
+        let language = NSUserDefaults.standardUserDefaults().objectForKey("language")
+        if(language != nil){
+            if(language as! String == "english"){
+                english.accessoryType = UITableViewCellAccessoryType.Checkmark
+            }
+            else{
+                vietnamese.accessoryType = UITableViewCellAccessoryType.Checkmark
+            }
+        }
+
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -35,11 +45,16 @@ class LanguageSettingTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if(indexPath.row == 0){// english row
+            //save language in permanent storage
+            NSUserDefaults.standardUserDefaults().setObject("english", forKey: "language")
             english.accessoryType = UITableViewCellAccessoryType.Checkmark
             vietnamese.accessoryType = UITableViewCellAccessoryType.None
         
         }
         else{// vietnamese row
+            //save language in permanent storage
+            NSUserDefaults.standardUserDefaults().setObject("tiếng việt", forKey: "language")
+            
             english.accessoryType = UITableViewCellAccessoryType.None
             vietnamese.accessoryType = UITableViewCellAccessoryType.Checkmark
         }
