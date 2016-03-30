@@ -46,28 +46,28 @@ class transactionList{
     func getArrayOfTransactionByDay(workDate:NSDate) -> Array<transactionModel>{
         let calendar = NSCalendar.currentCalendar()
         let requestDateComponent = calendar.components([NSCalendarUnit.Day, NSCalendarUnit.Month, NSCalendarUnit.Year, NSCalendarUnit.WeekOfYear, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second, NSCalendarUnit.Nanosecond], fromDate: workDate)
-        var returnedArray:Array<transactionModel>?
+        var returnedArray:Array<transactionModel> = Array<transactionModel>()
         for t in transList!{
             let workDateComponent = calendar.components([NSCalendarUnit.Day, NSCalendarUnit.Month, NSCalendarUnit.Year, NSCalendarUnit.WeekOfYear, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second, NSCalendarUnit.Nanosecond], fromDate: t.workDate!)
             if(requestDateComponent.day == workDateComponent.day && requestDateComponent.month == workDateComponent.month && requestDateComponent.year == workDateComponent.year){
-                returnedArray?.append(t)
+                returnedArray.append(t)
             }
         }
-        return returnedArray!
+        return returnedArray
     }
     func getArrayOfTransactionByRange(from:NSDate,to:NSDate) -> Array<transactionModel>{
         var fromConverted:NSDate = convertDate(from)
         var toConverted:NSDate = convertDate(to)
 
-        var returnedArray:Array<transactionModel>?
+        var returnedArray:Array<transactionModel> = Array<transactionModel>()
         for t in transList!{
             var transWorkDateConverted:NSDate = convertDate(t.workDate!)
             if((t.workDate!.compare(fromConverted) == NSComparisonResult.OrderedDescending || t.workDate!.compare(fromConverted) == NSComparisonResult.OrderedSame) && (t.workDate!.compare(toConverted) == NSComparisonResult.OrderedAscending || t.workDate!.compare(toConverted) == NSComparisonResult.OrderedSame)){
                 
-                returnedArray?.append(t)
+                returnedArray.append(t)
             }
         }
-        return returnedArray!
+        return returnedArray
     }
     func convertDate(date:NSDate)->NSDate{
         let calendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)!
@@ -77,75 +77,94 @@ class transactionList{
     }
 
     func oneDayOwnerPay(workDate:NSDate)-> Double{
-        var total:Double?
+        var total:Double = 0.0
         for t in getArrayOfTransactionByDay(workDate){
-            total = total! + t.ownerPay()
+            total = total + t.ownerPay()
         }
-        return total!
+        return total
     }
     func oneDayTotalAmount(workDate:NSDate) ->Double{
-        var totalAmt:Double?
+        var totalAmt:Double = 0
         for t in getArrayOfTransactionByDay(workDate){
-            totalAmt = totalAmt! + t.amount!
+            totalAmt = totalAmt + t.amount!
         }
-        return totalAmt!
+        return totalAmt
     }
     func oneDayTotalTipCard(workDate:NSDate) ->Double{
-        var total:Double?
+        var total:Double = 0
         for t in getArrayOfTransactionByDay(workDate){
-            total = total! + t.tipCard!
+            total = total + t.tipCard!
         }
-        return total!
+        return total
     }
     func oneDayTotalTipCash(workDate:NSDate) ->Double{
-        var total:Double?
+        var total:Double = 0
         for t in getArrayOfTransactionByDay(workDate){
-            total = total! + t.tipCash!
+            total = total + t.tipCash!
         }
-        return total!
+        return total
     }
     func oneDayTotalIncome(workDate:NSDate) ->Double{
-        var total:Double?
+        var total:Double = 0
         for t in getArrayOfTransactionByDay(workDate){
-            total = total! + t.income()
+            total = total + t.income()
         }
-        return total!
+        return total
     }
     
     func byRangeOwnerPay(from:NSDate, to:NSDate)-> Double{
-        var total:Double?
+        var total:Double = 0
         for t in getArrayOfTransactionByRange(from, to: to){
-            total = total! + t.ownerPay()
+            total = total + t.ownerPay()
         }
-        return total!
+        return total
     }
     func byRangeTotalAmount(from:NSDate, to:NSDate)-> Double{
-        var total:Double?
+        var total:Double = 0
         for t in getArrayOfTransactionByRange(from, to: to){
-            total = total! + t.amount!
+            total = total + t.amount!
         }
-        return total!
+        return total
     }
     func byRangeTipCard(from:NSDate, to:NSDate)-> Double{
-        var total:Double?
+        var total:Double = 0
         for t in getArrayOfTransactionByRange(from, to: to){
-            total = total! + t.tipCard!
+            total = total + t.tipCard!
         }
-        return total!
+        return total
     }
     func byRangeTipCash(from:NSDate, to:NSDate)-> Double{
-        var total:Double?
+        var total:Double = 0
         for t in getArrayOfTransactionByRange(from, to: to){
-            total = total! + t.tipCash!
+            total = total + t.tipCash!
         }
-        return total!
+        return total
     }
     func byRangeIncome(from:NSDate, to:NSDate)-> Double{
-        var total:Double?
+        var total:Double = 0
         for t in getArrayOfTransactionByRange(from, to: to){
-            total = total! + t.income()
+            total = total + t.income()
         }
-        return total!
+        return total
+    }
+    func findIndex(transID:Int)->Int{
+        for (var i = 0;i < transList!.count; i = i + 1){
+            if(transList![i].transID == transID){
+                return i
+            }
+        }
+        return -1
+    }
+    
+    
+    func deleteTransByID(transID:Int)->Bool{
+        for t in transList!{
+            if(t.transID == transID){
+                transList!.removeAtIndex(findIndex(transID))
+                return true
+            }
+        }
+        return false
     }
 
 

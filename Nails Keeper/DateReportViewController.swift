@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DateReportViewController: UIViewController {
+class DateReportViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()

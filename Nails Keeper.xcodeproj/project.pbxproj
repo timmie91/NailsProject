@@ -25,9 +25,9 @@
 		228EA2421C9A14A0008DAC59 /* WeekReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228EA2411C9A14A0008DAC59 /* WeekReportViewController.swift */; };
 		228EA2441C9A14EB008DAC59 /* DateReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228EA2431C9A14EB008DAC59 /* DateReportViewController.swift */; };
 		228EA2481C9A365D008DAC59 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228EA2471C9A365D008DAC59 /* HomeTableViewCell.swift */; };
-		228EA2511C9A3C66008DAC59 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228EA24F1C9A3C66008DAC59 /* Transaction.swift */; };
 		228EA2531C9A4078008DAC59 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228EA2521C9A4078008DAC59 /* TransactionModel.swift */; };
 		228EA2551C9A51E3008DAC59 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228EA2541C9A51E3008DAC59 /* Common.swift */; };
+		22CA273F1CAB2A9000EDF923 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CA273D1CAB2A9000EDF923 /* Transaction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,9 +72,9 @@
 		228EA2411C9A14A0008DAC59 /* WeekReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekReportViewController.swift; sourceTree = "<group>"; };
 		228EA2431C9A14EB008DAC59 /* DateReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateReportViewController.swift; sourceTree = "<group>"; };
 		228EA2471C9A365D008DAC59 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
-		228EA24F1C9A3C66008DAC59 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Transaction.swift; path = ../Transaction.swift; sourceTree = "<group>"; };
 		228EA2521C9A4078008DAC59 /* TransactionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		228EA2541C9A51E3008DAC59 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		22CA273D1CAB2A9000EDF923 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Transaction.swift; path = ../Transaction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,7 +176,7 @@
 		228EA24D1C9A3ACF008DAC59 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				228EA24F1C9A3C66008DAC59 /* Transaction.swift */,
+				22CA273D1CAB2A9000EDF923 /* Transaction.swift */,
 				228EA2521C9A4078008DAC59 /* TransactionModel.swift */,
 				228EA2541C9A51E3008DAC59 /* Common.swift */,
 			);
@@ -326,13 +326,13 @@
 				228EA2531C9A4078008DAC59 /* TransactionModel.swift in Sources */,
 				228EA2421C9A14A0008DAC59 /* WeekReportViewController.swift in Sources */,
 				228EA20E1C9A0FCA008DAC59 /* AppDelegate.swift in Sources */,
+				22CA273F1CAB2A9000EDF923 /* Transaction.swift in Sources */,
 				228EA2481C9A365D008DAC59 /* HomeTableViewCell.swift in Sources */,
 				1E5A80DB1CA8668700E60A83 /* SettingTableViewController.swift in Sources */,
 				228EA2441C9A14EB008DAC59 /* DateReportViewController.swift in Sources */,
 				228EA2161C9A0FCA008DAC59 /* Nails_Keeper.xcdatamodeld in Sources */,
 				228EA2401C9A1435008DAC59 /* HomeViewController.swift in Sources */,
 				228EA2551C9A51E3008DAC59 /* Common.swift in Sources */,
-				228EA2511C9A3C66008DAC59 /* Transaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
